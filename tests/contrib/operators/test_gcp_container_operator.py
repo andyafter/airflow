@@ -147,7 +147,7 @@ class GKEPodOperatorTest(unittest.TestCase):
             GKEPodOperator.template_fields))
 
     @mock.patch(
-        'airflow.contrib.operators.kubernetes_pod_operator.KubernetesPodOperator.execute')
+        'airflow.providers.cncf.kubernetes.operators.kubernetes_pod.KubernetesPodOperator.execute')
     @mock.patch('tempfile.NamedTemporaryFile')
     @mock.patch("subprocess.check_call")
     def test_execute_conn_id_none(self, proc_mock, file_mock, exec_mock):
@@ -169,7 +169,7 @@ class GKEPodOperatorTest(unittest.TestCase):
 
     @mock.patch('airflow.hooks.base_hook.BaseHook.get_connection')
     @mock.patch(
-        'airflow.contrib.operators.kubernetes_pod_operator.KubernetesPodOperator.execute')
+        'airflow.providers.cncf.kubernetes.operators.kubernetes_pod.KubernetesPodOperator.execute')
     @mock.patch('tempfile.NamedTemporaryFile')
     @mock.patch("subprocess.check_call")
     @mock.patch.dict(os.environ, {})
@@ -200,7 +200,7 @@ class GKEPodOperatorTest(unittest.TestCase):
     @mock.patch.dict(os.environ, {})
     @mock.patch('airflow.hooks.base_hook.BaseHook.get_connection')
     @mock.patch(
-        'airflow.contrib.operators.kubernetes_pod_operator.KubernetesPodOperator.execute')
+        'airflow.providers.cncf.kubernetes.operators.kubernetes_pod.KubernetesPodOperator.execute')
     @mock.patch('tempfile.NamedTemporaryFile')
     @mock.patch("subprocess.check_call")
     def test_execute_conn_id_dict(self, proc_mock, file_mock, exec_mock, get_con_mock):
